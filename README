@@ -1,1 +1,3 @@
 This is my first Git project and first dabble with ncurses enjoy!
+I have included pdcurses for windows and a compiled binary that works on windows.
+linux dependencys are so far only ncurses.
