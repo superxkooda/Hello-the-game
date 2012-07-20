@@ -4,7 +4,8 @@ flags=-c -Wall
 all: convo
 
 convo: main.o hello.o
-	if [ ! -d build -a ! -d build/bin ];	then echo creating build directory;	mkdir -p build/bin;	fi;
+	if [ ! -d build -a ! -d build/bin ]; then echo yo; fi
+	if [ ! -d build -a ! -d build/bin ];	then	mkdir -p build/bin;	fi;
 	$(CC) *.o -o ./build/bin/hello -lcurses 
 	mv -v *.o ./build
 
@@ -15,7 +16,7 @@ hello.o:
 	$(CC) $(flags) hello.cpp 
 
 clean: 
-	rm -rfv ./build
+	rm -rfv ./build/{*.o,bin/hello}
 
 install:
 	cp -vi ./build/bin/hello /usr/bin/hello
