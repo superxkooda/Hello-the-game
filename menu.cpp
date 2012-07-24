@@ -6,6 +6,8 @@ int menu::init()
 	raw();
 	noecho();
 	keypad(stdscr, TRUE);
+	start_color();
+    init_pair(1, COLOR_GREEN, -1);
 	int wait = -1;
 
 	while( wait == -1 )
@@ -88,6 +90,13 @@ ascii[8]="                           ---Press any key to continue---";
 
 for(int loop =0; loop<9;loop++)
 {
+    if(loop >4 && loop <7)
+    {
+        attron(COLOR_PAIR(1));
+        mvprintw(y,(stdx/2)-43,"%s",ascii[loop].c_str());
+        attroff(COLOR_PAIR(1));
+    }
+    else
 mvprintw(y,(stdx/2)-43,"%s",ascii[loop].c_str());
 y++;
 }
@@ -125,8 +134,6 @@ if(over==true)
 					mvprintw(y+z,x+2,"%c",l[m]);
 					mvprintw(y+z,x+3,"%c",l2[m]);
 					mvprintw(y+z,x+4,"%c",o[m]);
-					start_color();
-					init_pair(1, COLOR_GREEN, COLOR_BLACK);
 					attron(COLOR_PAIR(1));
 						switch(m)
 						{

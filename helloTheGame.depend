@@ -1,25 +1,25 @@
 # depslib dependency file v1.0
-1343097890 source:z:\sorcecode\c++\hello-the-game\main.cpp
+1343098156 source:/home/me/C++/helloTheGame/hello.cpp
+	"hello.h"
+
+1343098156 /home/me/C++/helloTheGame/hello.h
+	"common.h"
+
+1343098156 /home/me/C++/helloTheGame/common.h
+	<curses.h>
+	<string>
+
+1343152640 source:/home/me/C++/helloTheGame/main.cpp
 	"main.h"
 
-1343097890 z:\sorcecode\c++\hello-the-game\main.h
+1343098156 /home/me/C++/helloTheGame/main.h
 	"common.h"
 	"menu.h"
 	"hello.h"
 
-1343097889 z:\sorcecode\c++\hello-the-game\common.h
-	<curses.h>
-	<string>
-
-1343097890 z:\sorcecode\c++\hello-the-game\menu.h
+1343098157 /home/me/C++/helloTheGame/menu.h
 	"common.h"
 
-1343097890 z:\sorcecode\c++\hello-the-game\hello.h
-	"common.h"
-
-1343097889 source:z:\sorcecode\c++\hello-the-game\hello.cpp
-	"hello.h"
-
-1343097890 source:z:\sorcecode\c++\hello-the-game\menu.cpp
+1343153888 source:/home/me/C++/helloTheGame/menu.cpp
 	"menu.h"
 

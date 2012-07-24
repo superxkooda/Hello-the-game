@@ -4,7 +4,7 @@
 #include "menu.h"
 #include "hello.h"
 
-menu sup;
+menu hello;
 int stdx, stdy;
 void getStdScr(void);
 #endif

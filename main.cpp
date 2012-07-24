@@ -4,10 +4,12 @@ int main()
 	ncursesInit();
 	getStdScr();
 
-	sup.init();
-		 q1();
+	hello.init();
+		q1();
+
  refresh();
- getch();
+
+
 	endwin();
 	return 0;
 }
