@@ -33,7 +33,15 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="common.h" />
+		<Unit filename="hello.cpp" />
+		<Unit filename="hello.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="main.h" />
+		<Unit filename="menu.cpp" />
+		<Unit filename="menu.h" />
+		<Unit filename="winLib\curses.h" />
+		<Unit filename="winLib\panel.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

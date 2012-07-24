@@ -3,16 +3,13 @@ CC = c++
 flags=-c -Wall
 all: convo
 
-convo: main.o hello.o
+convo: cpp 
 	if [ ! -d build -a ! -d build/bin ];	then echo creating build directory;	mkdir -p build/bin;	fi;
 	$(CC) *.o -o ./build/bin/hello -lcurses 
 	mv -v *.o ./build
 
-main.o: main.cpp
-	$(CC) $(flags) main.cpp
-
-hello.o:
-	$(CC) $(flags) hello.cpp 
+cpp:
+	$(CC) $(flags) *.cpp
 
 clean: 
 	rm -rfv ./build

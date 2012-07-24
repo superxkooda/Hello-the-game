@@ -1,8 +1,18 @@
-#include "hello.h"
+#include "main.h"
 int main()
 {
 	ncursesInit();
-	q1();
+	getStdScr();
+
+	sup.init();
+		 q1();
+ refresh();
+ getch();
 	endwin();
 	return 0;
+}
+
+void getStdScr()
+{
+getmaxyx(stdscr, stdy, stdx);
 }
