@@ -13,7 +13,7 @@ void ncursesInit()
 
 
 
-	//	noecho();
+		noecho();
 	//raw();
 }
 
@@ -54,3 +54,11 @@ void q1()
 		}
 	}
 }
+
+    void questions::init()
+    {
+    win = newwin(40,80,((stdy/2)-20),((stdx/2)-40));
+    box(win,0,0);
+    refresh();
+    wrefresh(win);
+     }

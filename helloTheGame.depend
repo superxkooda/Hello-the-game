@@ -2,6 +2,8 @@
 1343098156 source:/home/me/C++/helloTheGame/hello.cpp
 	"hello.h"
 
+1343254929 
+
 1343098156 /home/me/C++/helloTheGame/hello.h
 	"common.h"
 
@@ -22,4 +24,84 @@
 
 1343153888 source:/home/me/C++/helloTheGame/menu.cpp
 	"menu.h"
+
+1343541241 source:z:\sorcecode\c++\hello-the-game\menu.cpp
+	"common.h"
+	"menu.h"
+
+1343542144 z:\sorcecode\c++\hello-the-game\menu.h
+	"common.h"
+
+1343541082 z:\sorcecode\c++\hello-the-game\common.h
+	<curses.h>
+	<string.h>
+	<cstring>
+	<iostream>
+	"WIN32.h"
+
+1343541082 source:z:\sorcecode\c++\hello-the-game\hello.cpp
+	"hello.h"
+
+1343541101 z:\sorcecode\c++\hello-the-game\hello.h
+	"common.h"
+
+1343542124 source:z:\sorcecode\c++\hello-the-game\main.cpp
+	"main.h"
+
+1343541345 z:\sorcecode\c++\hello-the-game\main.h
+	"common.h"
+	"menu.h"
+	"hello.h"
+
+1343536143 z:\sorcecode\c++\hello-the-game\win32.h
+	<windows.h>
+
+1343187083 >
+
+1343510073 source:/home/me/C++/Hello-the-game/hello.cpp
+	"hello.h"
+
+1343510012 /home/me/C++/Hello-the-game/hello.h
+	"common.h"
+
+1343428111 /home/me/C++/Hello-the-game/common.h
+	<curses.h>
+	<string.h>
+	<cstring>
+	<iostream>
+	"myLib.h"
+	"WIN32.h"
+
+1343530987 /home/me/C++/Hello-the-game/myLib.h
+
+1343347061 /home/me/C++/Hello-the-game/WIN32.h
+	<windows.h>
+
+1343509821 source:/home/me/C++/Hello-the-game/menu.cpp
+	"menu.h"
+
+1343347061 /home/me/C++/Hello-the-game/menu.h
+	"common.h"
+
+1343535182 source:/home/me/C++/Hello-the-game/main.cpp
+	"main.h"
+
+1343421826 /home/me/C++/Hello-the-game/main.h
+	"common.h"
+	"menu.h"
+	"hello.h"
+
+1343530987 source:/home/me/C++/Hello-the-game/myLib.cpp
+	"common.h"
+	"myLib.h"
+
+1343347061 source:/home/me/C++/Hello-the-game/menuConstruct.cpp
+
+1343538573 z:\sorcecode\c++\hello-the-game\mylib.h
+	"common.h"
+
+1343536144 source:z:\sorcecode\c++\hello-the-game\menuconstruct.cpp
+
+1343541275 source:z:\sorcecode\c++\hello-the-game\mylib.cpp
+	"common.h"
 

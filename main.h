@@ -4,7 +4,10 @@
 #include "menu.h"
 #include "hello.h"
 
-menu hello;
+
+menu HelloTheGame;
 int stdx, stdy;
 void getStdScr(void);
 #endif
+
+

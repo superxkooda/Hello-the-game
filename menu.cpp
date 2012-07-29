@@ -1,6 +1,17 @@
+#include "common.h";
 #include "menu.h"
+ menu::menu()
+{
 
-int menu::init()
+    x=0; y=0; iterations=0; time=0;
+
+};
+void menu::start()
+{
+    init();
+    int score = questionWrapper()
+}
+void menu::init()
 {
 	curs_set(0);
 	raw();
@@ -12,65 +23,45 @@ int menu::init()
 
 	while( wait == -1 )
 	{
-		animate(stdx, stdy);
+		title(stdx, stdy);
 		timeout(16.667);
 		wait = getch();
 		refresh();
 	}
 	timeout(-1);
-	curs_set(1);
-	return 0;
 }
 
-void menu::animate(int maxX, int maxY)
+void menu::title(int maxX, int maxY)
 {
-	static int x , y , t, i; //positions
-	static bool test[3] = { false };//has ran
-	//	static char hello[1][5];
 	x=(maxX/2)-2;
-//first time running program ... initiallizer
-	if(test[0] != true)
+
+	if ( time == CLOCK)//clock macro
 	{
 
-		i=0;
-		test[0] = true;
-		y=0;
-	}
-//start the clock if not done so already
-	if(test[1] !=true)
-	{
-		t=0;
-		test[1] = true;
-
-	}
-
-	if ( t == CLOCK)//clock
-	{
-
-		t=0;
-		if (i<23)
-			fall(false, i , x, y);
-		else if(i<47)
-			fall(true, i ,x , y);
+		time=0;
+		if (iterations<23)
+			fall(false, iterations , x, y);
+		else if(iterations<47)
+			fall(true, iterations , x, y);
 		else
 		{
-			test[2] =true;
-			i=0;
+			iterations=0;
+		    titleSplash();
 		}
-		if (test[2] == true)
-			title();
 
 	}
 
 	else
-		t++;
+		time++;
 }
 
-void menu::title()
+void menu::titleSplash()
 {
     int y=25;
 string ascii[9];
 ascii[0]=" ___________  __    __    _______       _______       __       ___      ___   _______ ";
+
+
 
 ascii[1]="(\"     _   \")/\" |  | \"\\  /\"     \"|     /\" _   \"|     /\"\"\\     |\"  \\    /\"  | /\"     \"|";
 
@@ -211,4 +202,7 @@ if(over==true)
 			i++;
 			}
 
+int menu::questionWrapper()
+{
 
+}

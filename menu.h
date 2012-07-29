@@ -2,11 +2,18 @@
 #define MENU_H
 #include "common.h"
 class menu{
-	void animate(int, int);
+   int x, y, iterations, time;
+	void title(int maxX, int maxY);
+	void titleSplash();
 	void fall(bool, int&, int, int);
-	void title(void);
+	void init(void);
+	int questionWrapper(void);
+
+	WINDOW * win;
 	public:
-		int init(void);
+	menu();
+	void start(void);
+
 //		bool gameOver(void);
 
 };
