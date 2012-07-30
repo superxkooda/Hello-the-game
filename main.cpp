@@ -19,6 +19,7 @@ int main()
 	}
 
 HelloTheGame.start();
+getch();
 
 	endwin();
 

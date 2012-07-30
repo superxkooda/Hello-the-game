@@ -5,10 +5,11 @@
 //declarations
 void q1();
 void ncursesInit(void);
-class questions{
-WINDOW * win;
+class questions
+{
+    WINDOW * win;
 public:
-void init(void);
+    void init(void);
 };
 
 #endif

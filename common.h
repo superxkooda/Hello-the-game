@@ -22,6 +22,8 @@
 
 			#endif
 
+			#define TIMER 16.667
+
 		#ifndef MAIN_H
 			#ifndef NON_MAIN_COMMON
 			#define NON_MAIN_COMMON
@@ -33,5 +35,5 @@
 	#endif
 
 	//my common library
-	void animate(COORD &start, COORD &slope, char obj[], WINDOW *win);
+//	void animate(COORD &start, COORD &slope, char obj[], WINDOW *win);
 #endif

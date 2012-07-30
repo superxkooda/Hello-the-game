@@ -1,6 +1,6 @@
 
-#include "common.h"
-int animate(COORD start)
+#include "myLib.h"
+/*int animate(COORD start)
 {
 return 0;
 }
@@ -17,3 +17,7 @@ wrefresh(win);
 }
 //void animate(COOD start, COORD finish, string &obj)
 */
+void type(WINDOW * win,COORD &start, string content)
+{
+    int length= content.size();
+}
