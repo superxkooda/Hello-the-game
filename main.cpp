@@ -1,5 +1,4 @@
 #include "main.h"
-
 int main()
 {
     #ifdef _WIN32
@@ -18,16 +17,13 @@ int main()
 
 	}
 
-HelloTheGame.start();
-getch();
+HelloTheGame.init();
 
+getch();
 	endwin();
 
 
 	return 0;
 }
 
-void getStdScr()
-{
-getmaxyx(stdscr, stdy, stdx);
-}
+

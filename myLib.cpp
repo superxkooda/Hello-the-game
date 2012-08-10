@@ -1,23 +1,55 @@
 
 #include "myLib.h"
-/*int animate(COORD start)
+
+void ncursesInit()
 {
-return 0;
+    initscr();
+    keypad(stdscr, true);
+    if(has_colors() == FALSE)
+    {
+        endwin();
+        printf("Your terminal does not support color\n");
+    }
+    else
+        use_default_colors();
+
+
+
+    noecho();
+    //raw();
 }
 
-/*void animate(COORD &start, COORD &finish, char obj[], WINDOW * win)
+void wrapper()
 {
 
 
+    win = newwin(40,80,((stdy/2)-20),((stdx/2)-40));
+    box(win,0,0);
+    refresh();
+    wrefresh(win);
 
-an example that works
-wprintw(win,"%s", obj);
-wrefresh(win);
-*
 }
-//void animate(COOD start, COORD finish, string &obj)
-*/
-void type(WINDOW * win,COORD &start, string content)
+
+void getStdScr()
 {
-    int length= content.size();
+getmaxyx(stdscr, stdy, stdx);
+}
+
+void newGame()
+{
+    score=0;
+}
+
+void bclear(WINDOW * window)
+{
+    wclear(window);
+    box(win,0,0);
+}
+
+void quit()
+{
+
+
+    endwin();
+    std::exit(0);
 }

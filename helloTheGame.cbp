@@ -35,13 +35,10 @@
 		</Compiler>
 		<Unit filename="WIN32.h" />
 		<Unit filename="common.h" />
-		<Unit filename="hello.cpp" />
-		<Unit filename="hello.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="main.h" />
 		<Unit filename="menu.cpp" />
 		<Unit filename="menu.h" />
-		<Unit filename="menuConstruct.cpp" />
 		<Unit filename="myLib.cpp" />
 		<Unit filename="myLib.h" />
 		<Unit filename="winLib/curses.h" />

@@ -1,19 +1,15 @@
-#ifndef myLib_h
-#define myLib_h
-
+#ifndef MYLIB_H
+#define MYLIB_H
 #include "common.h"
-
-#ifndef _WIN32
-struct COORD
-{
-    int X;
-    int Y;
-};
-#endif
-
-//int animate(COORD start);
-
-
-//void animate(COORD &start, COORD &finish, char obj[]);// WINDOW win);
-
+#include "menu.h"
+WINDOW * win;
+void ncursesInit();
+void wrapper();
+void getStdScr();
+int stdx, stdy;
+int score;
+void newGame();
+std::string keyPress();
+void bclear(WINDOW * window);
+void quit();
 #endif

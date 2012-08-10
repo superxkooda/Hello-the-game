@@ -1,6 +1,6 @@
 #include "menu.h"
-int Qindex[]= {0,5,10};
-string QnA[]=
+/*
+std::string QnA[]=
 {
     //base question
     "Hello how is your day going? ",//0
@@ -16,8 +16,15 @@ string QnA[]=
     "this is the third"
 
 };
+*/
 
-
+std::string mainOptions[]=
+{
+    "New Game",
+    "Continue",
+    "High Score",
+    "Exit"
+};
 
 menu::menu()
 {
@@ -27,36 +34,9 @@ menu::menu()
     iterations=0;
     time=0;
 
-    /*int menu::index[]={
-
-    }*/
-
 
 };
 
-struct menu::_score
-{
-    int val;// score from last question
-    int contin; //next question to go to
-    int gameOver;//0 means continue
-    //1= fin by death
-    //2= fin by dull ending
-    //3 means game compleation
-
-
-};
-
-void menu::start()
-{
-    init();
-    score=new _score;
-    score->contin=0;
-    score->val=0;
-    score->gameOver=0;
-
-    int totalScore;
-    totalScore=questWrapper(score);
-}
 void menu::init()
 {
     curs_set(0);
@@ -81,6 +61,9 @@ void menu::init()
     mvprintw(8,(stdx/2)-2,"hello");
     refresh();
     attroff(COLOR_PAIR(1));
+
+    mainMenu();
+
 }
 
 void menu::title(int maxX, int maxY)
@@ -110,7 +93,7 @@ void menu::title(int maxX, int maxY)
 void menu::titleSplash()
 {
     int y=25;
-    string ascii[9];
+    std::string ascii[9];
     ascii[0]=" ___________  __    __    _______       _______       __       ___      ___   _______ ";
 
 
@@ -254,7 +237,79 @@ void menu::fall(bool over, int &i, int x, int y)
     i++;
 }
 
-int menu::questWrapper(_score * score)
+
+//main menu
+void menu::mainMenu()
+{
+    wrapper();
+    int key;
+    int selected=0;
+    int exit=0;
+//start our main loop for the menu
+    while(exit==0)
+    {
+//draw our items and hilight the selected element
+        for(int i=0; i<4; i++)
+        {
+            if(i==selected)
+                wattron(win,COLOR_PAIR(1));//
+
+            mvwprintw(win, (10+i),(37) , "%s", mainOptions[i].c_str());
+
+            if(i==selected)
+                wattroff(win,COLOR_PAIR(1));
+        }
+
+        wrefresh(win);
+        timeout(0);
+        key=getch();
+
+        switch(key)
+        {
+        case KEY_UP:
+            if(selected>0)
+            {
+                selected--;
+            }
+            break;
+
+        case KEY_DOWN:
+            if(selected<3)
+            {
+                selected++;
+            }
+            break;
+
+        case KEY_ENTER:
+        case 10:
+        exit=1;
+            break;
+
+        default:
+            break;
+
+
+        }
+
+        SLEEP(TIMER);
+    }
+    timeout(-1);
+
+    switch(selected)
+    {
+    case 0: //"New Game":
+    break;
+    case 1: // "Continue":
+    break;
+    case 2: // "High Score":
+    break;
+    case 3: //"Exit":
+    quit();
+    break;
+    }
+}
+
+/*int menu::questWrapper(_score * score)
 {
     int total;
     win = newwin(40,80,((stdy/2)-20),((stdx/2)-40));
@@ -322,3 +377,4 @@ int menu::Qtype(string  question)
 
 
 
+*/
