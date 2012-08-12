@@ -46,13 +46,15 @@ void menu::init()
     start_color();
     init_pair(1, COLOR_GREEN, -1);
     int wait = -1;
+    timeout(0);
 
     while( wait == -1 )
     {
         title(stdx, stdy);
-        timeout(TIMER);//MACRO
+        //MACRO
         wait = getch();
         refresh();
+        SLEEP(TIMER);
     }
     timeout(-1);
     //keep hello at the top of the screen
@@ -70,7 +72,7 @@ void menu::title(int maxX, int maxY)
 {
     x=(maxX/2)-2;
 
-    if ( time == CLOCK)//clock macro
+    if ( time == 8)//every 9 iterations animate
     {
 
         time=0;
@@ -254,7 +256,7 @@ void menu::mainMenu()
             if(i==selected)
                 wattron(win,COLOR_PAIR(1));//
 
-            mvwprintw(win, (10+i),(37) , "%s", mainOptions[i].c_str());
+            mvwprintw(win, (10+i),(35) , "%s", mainOptions[i].c_str());
 
             if(i==selected)
                 wattroff(win,COLOR_PAIR(1));
@@ -298,16 +300,19 @@ void menu::mainMenu()
     switch(selected)
     {
     case 0: //"New Game":
+    TBA("New Game");
     break;
+
     case 1: // "Continue":
+    TBA("Continue");
     break;
-    case 2: // "High Score":
-    break;
+
     case 3: //"Exit":
     quit();
     break;
     }
 }
+
 
 /*int menu::questWrapper(_score * score)
 {

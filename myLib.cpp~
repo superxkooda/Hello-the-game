@@ -44,22 +44,13 @@ void bclear(WINDOW * window)
 {
 	wclear(window);
 	box(win,0,0);
-	wrefresh(window);
 }
 
 void quit()
 {
-	clear();
 	move(0,0);
+	clear();
 	refresh();
 	endwin();
 	std::exit(0);
-}
-void TBA(std::string feature)
-{
-    clear();
-    printw("This feature \"%s\" has not been implemented yet and is in the works :)\n These new and exciting features are just on the horizon. \n press any key to quit\n",feature.c_str());
-    timeout(-1);
-    getch();
-    quit();
 }

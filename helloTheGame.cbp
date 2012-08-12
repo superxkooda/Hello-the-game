@@ -33,7 +33,6 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="WIN32.h" />
 		<Unit filename="common.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="main.h" />

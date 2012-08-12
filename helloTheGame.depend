@@ -6,21 +6,23 @@
 	"common.h"
 	"menu.h"
 
-1344606150 /home/me/C++/Hello-the-game/common.h
+1344625446 /home/me/C++/Hello-the-game/common.h
 	<curses.h>
 	<string.h>
 	<cstring>
-	<iostream>
+	<cstdlib>
 	<unistd.h>
+	<iostream>
+	"menu.h"
 	"WIN32.h"
 
 1344536948 /home/me/C++/Hello-the-game/WIN32.h
 	<windows.h>
 
-1344611708 /home/me/C++/Hello-the-game/menu.h
+1344621797 /home/me/C++/Hello-the-game/menu.h
 	"common.h"
 
-1344536948 source:/home/me/C++/Hello-the-game/menu.cpp
+1344625456 source:/home/me/C++/Hello-the-game/menu.cpp
 	"menu.h"
 
 1344570552 source:/home/me/C++/Hello-the-game/myLib.cpp

@@ -15,15 +15,13 @@
 			#ifdef _WIN32//are we running windows?
 
             #define _WIN32_WINNT 0x0600
-			#define CLOCK 2//only used for the opening animaitons repalaces clock
-			#define SLEEP(a) sleep(a);//in 1000s of a second
+			#define SLEEP(a) sleep(a)//in 1000s of a second
 			#include "WIN32.h"
 			#endif
 
 			#ifndef _WIN32
 
-			#define CLOCK 8
-			#define SLEEP(a) usleep( a * 1000);//in 1 000 000s of a second// replaces CLOCK
+			#define SLEEP(a) usleep( a * 1000)//in 1 000 000s of a second// replaces CLOCK
 
 			#endif
 
@@ -54,6 +52,7 @@
     extern std::string keyPress();
     extern void bclear(WINDOW * window);
     extern void quit();
+    extern void TBA(std::string feature);
 
 
 #endif

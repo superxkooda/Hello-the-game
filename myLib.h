@@ -9,7 +9,7 @@ void getStdScr();
 int stdx, stdy;
 int score;
 void newGame();
-std::string keyPress();
 void bclear(WINDOW * window);
 void quit();
+void TBA(std::string feature);
 #endif
