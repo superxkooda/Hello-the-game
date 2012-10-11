@@ -1,58 +1,34 @@
 #ifndef COMMON_H
-	#define COMMON_H
-       //things that all files need
-			#include <curses.h>
-			#include <string.h>
-			#include <cstring>
-			#include <cstdlib> //for debugging
-			#include <unistd.h>
-			#include <iostream>
-			#include "menu.h"
+#define COMMON_H
+//things that all files need
+#include <curses.h>
+#include <string.h>
+#include <cstring>
+#include <cstdlib> //for debugging
+#include <unistd.h>
+#include <iostream>
+#include "myLib.h"
+#include "menu.h"
 
 
-			//using namespace std;
+//using namespace std;
 
-			#ifdef _WIN32//are we running windows?
+#ifdef _WIN32//are we running windows?
+#define _WIN32_WINNT 0x0600
+#include <windows.h>
+#define SLEEP(a) Sleep(a)//in 1000s of a second
 
-            #define _WIN32_WINNT 0x0600
-			#define SLEEP(a) sleep(a)//in 1000s of a second
-			#include "WIN32.h"
-			#endif
+#endif
 
-			#ifndef _WIN32
+#ifndef _WIN32
 
-			#define SLEEP(a) usleep( a * 1000)//in 1 000 000s of a second// replaces CLOCK
+#define SLEEP(a) usleep( a * 1000)//in 1 000 000s of a second// replaces CLOCK
 
-			#endif
+#endif
 
-			#define TIMER 17 //for about 60 times a second rounding up form 16.666666
+#define TIMER 17 //for about 60 times a second rounding up form 16.666666
+#define length(a) ( sizeof ( a ) / sizeof( a[0] ) )//get length of arrays may be handy
 
-		 #ifndef MAIN_H
-			#ifndef NON_MAIN_COMMON
-			#define NON_MAIN_COMMON
-
-			//common things that i dont want to put in each header file
-
-
-
-
-		#endif
-
-	#endif
-	//everything else if after here including everything common.cpp
-//------------------------------------------------------------------------------------------
-
-//anything in myLib MUST be externed to avoid multiple definitions error
-    extern void getStdScr();
-    extern int stdx, stdy, score;
-    extern WINDOW * win;
-    extern void ncursesInit();
-    extern void wrapper();
-    extern void newGame();
-    extern std::string keyPress();
-    extern void bclear(WINDOW * window);
-    extern void quit();
-    extern void TBA(std::string feature);
 
 
 #endif

@@ -1,12 +1,11 @@
 # depslib dependency file v1.0
-1344575385 source:/home/me/C++/Hello-the-game/main.cpp
+1344646667 source:/home/me/C++/Hello-the-game/main.cpp
 	"main.h"
 
-1344566043 /home/me/C++/Hello-the-game/main.h
+1344625205 /home/me/C++/Hello-the-game/main.h
 	"common.h"
-	"menu.h"
 
-1344625446 /home/me/C++/Hello-the-game/common.h
+1344745324 /home/me/C++/Hello-the-game/common.h
 	<curses.h>
 	<string.h>
 	<cstring>
@@ -19,7 +18,7 @@
 1344536948 /home/me/C++/Hello-the-game/WIN32.h
 	<windows.h>
 
-1344621797 /home/me/C++/Hello-the-game/menu.h
+1344871977 /home/me/C++/Hello-the-game/menu.h
 	"common.h"
 
 1344625456 source:/home/me/C++/Hello-the-game/menu.cpp
@@ -31,4 +30,31 @@
 1344576209 /home/me/C++/Hello-the-game/myLib.h
 	"common.h"
 	"menu.h"
+
+1349674914 source:z:\sorcecode\c++\hello-the-game\mylib.cpp
+	"common.h"
+
+1349931764 z:\sorcecode\c++\hello-the-game\mylib.h
+
+1349674393 z:\sorcecode\c++\hello-the-game\common.h
+	<curses.h>
+	<string.h>
+	<cstring>
+	<cstdlib>
+	<unistd.h>
+	<iostream>
+	"myLib.h"
+	"menu.h"
+	<windows.h>
+
+1349459520 z:\sorcecode\c++\hello-the-game\menu.h
+
+1349674768 source:z:\sorcecode\c++\hello-the-game\main.cpp
+	"common.h"
+
+1349456239 z:\sorcecode\c++\hello-the-game\main.h
+	"common.h"
+
+1349932255 source:z:\sorcecode\c++\hello-the-game\menu.cpp
+	"common.h"
 
