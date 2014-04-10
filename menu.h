@@ -13,6 +13,7 @@ class gameObj
     void gameOver(int how);
     void mainMenu();
 
+
 public:
     gameObj();
     ~gameObj();

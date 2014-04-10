@@ -1,6 +1,6 @@
 #ifndef MYLIB_H
 #define MYLIB_H
-
+extern double TIMER;//for my SLEEP timer;
 extern WINDOW * win;
 extern int stdx, stdy;
 void ncursesInit();
@@ -11,6 +11,7 @@ void newGame();
 void bclear(WINDOW * window);
 void quit();
 void TBA(std::string feature);
+
 
 struct stats
 {
@@ -34,4 +35,16 @@ public:
     void draw(WINDOW * winn, int selected, int x, int y);
 };
 extern stats * tracker;
+
+class timer {
+	private:
+		double begTime;
+	public:
+		void start();
+		double elapsedTime();
+		bool isTimeout(double seconds);
+};
+
+void SLEEP(double time);
+void SLEEP();
 #endif

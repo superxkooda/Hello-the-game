@@ -1,6 +1,8 @@
 #define MYLIB_H
 #include "common.h"
+#include <time.h>
 //declarations
+double TIMER =1;//for my SLEEP timer;
 WINDOW * win;
 int stdx, stdy;
 void ncursesInit();
@@ -10,6 +12,7 @@ void newGame();
 void bclear(WINDOW * window);
 void quit();
 void TBA(std::string feature);
+
 
 struct stats
 {
@@ -31,7 +34,17 @@ public:
     ~menu();
     void draw(WINDOW * winn, int selected, int x, int y);
 };
+
 stats * tracker;
+
+class timer {
+	private:
+		double begTime;
+	public:
+		void start();
+		double elapsedTime();
+		bool isTimeout(double seconds);
+};
 //definitions
 
 
@@ -68,7 +81,36 @@ void getStdScr()
 
 void newGame()
 {
-    tracker= new stats;
+    refresh();
+	char exit[1];
+	exit[0] = 'y';
+	char day[1];
+	while(exit[0] != 'n' )
+	{
+		clear();
+		printw("Hello how is your day going \n Answers: 1 = good, 2 = bad \n : ");
+		getstr(day);
+		clear();
+		refresh();
+		if (day[0] == '1')
+			printw("Thats good you keep having a good day. \n Don't let me get in the way of that.\n");
+
+		else if (day[0] == '2')
+			printw("Im sorry to hear that. ... \n you know there is traffic on the street outside.\n");
+
+		else
+			printw("You have enterd an unacceptable answer. \n You should be ashamed of yourself! Think about the traffic outside and have a nice day \n");
+		refresh();
+		printw( "Play agoin? (y/n)?\n :");
+		refresh();
+		getstr(exit);
+		while (exit[0]!='y' && exit[0]!='n')
+		{
+			printw("WRONG! y to play again n to exit! \n :");
+			refresh();
+			getstr(exit);
+		}
+	}
 }
 
 void bclear(WINDOW * window)
@@ -154,3 +196,31 @@ void menu::draw(WINDOW * winn, int selected, int x, int y)
             wattroff(win,COLOR_PAIR(1));
     }
 }
+//timer class
+		void timer::start() {
+			begTime = clock();
+		}
+
+		double timer::elapsedTime() {
+			return ((double) clock() - begTime) / CLOCKS_PER_SEC;
+		}
+
+		bool timer::isTimeout(double seconds) {
+			return seconds >= elapsedTime();
+		}
+
+    void SLEEP(double time)
+    {
+        timer T;
+        T.start();
+         while(true)
+        {
+            if(T.elapsedTime() >= time)
+			break;
+
+        }
+    }
+    void SLEEP()//default to 60 times a second
+    {
+        SLEEP(.01666);
+    }

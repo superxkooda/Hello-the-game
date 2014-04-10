@@ -12,6 +12,7 @@ class gameObj
     int score;
     void gameOver(int how);
     void mainMenu();
+    timer T;
 
 public:
     gameObj();
@@ -60,12 +61,15 @@ void gameObj::titleScreen()
 
     while( wait == -1 )
     {
+
         title(stdx, stdy);
         //MACRO
         wait = getch();
         refresh();
-        SLEEP(TIMER);
-    }
+        SLEEP();//this is my implementation of sleep on a timer
+
+        }
+
     timeout(-1);
     //keep hello at the top of the screen
     clear();
@@ -261,6 +265,7 @@ void gameObj::mainMenu()
     while(exit==0)
     {
 
+
         x=(stdx/2)-2;
 
 //draw our items and hilight the selected element
@@ -299,7 +304,9 @@ void gameObj::mainMenu()
 
 
         }
-        SLEEP(TIMER);
+
+
+    SLEEP();
 
     }
     timeout(-1);
