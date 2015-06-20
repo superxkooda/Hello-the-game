@@ -1,0 +1,77 @@
+# depslib dependency file v1.0
+1350357176 source:z:\sorcecode\c++\fstream\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	"StackLL.h"
+
+1376768250 "
+
+1350341945 source:z:\sorcecode\c++\fstream\stackll.cpp
+	<string>
+
+1364792657 
+
+1350341945 z:\sorcecode\c++\fstream\stackll.h
+
+1350054432 source:/home/me/C++/fstream/StackLL.cpp
+	<string>
+
+1376768269 source:c:\users\mike\documents\c++\fstream\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	"stats.h"
+
+1361328127 c:\users\mike\documents\c++\fstream\stackll.h
+	<string>
+
+1364761911 source:c:\users\mike\documents\c++\fstream\stackll.cpp
+	<string>
+	"StackLL.h"
+
+1376767821 source:c:\users\mike\documents\c++\fstream\stats.cpp
+	"stats.h"
+
+1376768250 c:\users\mike\documents\c++\fstream\stats.h
+	<fstream>
+	<iostream>
+	"tree.h"
+	<string>
+	"StackLL.h"
+
+1359869152 source:c:\users\mike\documents\c++\fstream\tree.cpp
+	"tree.h"
+
+1364792657 c:\users\mike\documents\c++\fstream\tree.h
+	<string>
+
+1411336763 source:/home/me/src/C++/fstream/main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	"stats.h"
+
+1411336708 /home/me/src/C++/fstream/stats.h
+	<fstream>
+	<iostream>
+	"tree.h"
+	<string>
+	"StackLL.h"
+
+1411336708 /home/me/src/C++/fstream/tree.h
+	<string>
+
+1411336708 /home/me/src/C++/fstream/StackLL.h
+	<string>
+
+1411336763 source:/home/me/src/C++/fstream/StackLL.cpp
+	<string>
+	"StackLL.h"
+
+1411336763 source:/home/me/src/C++/fstream/tree.cpp
+	"tree.h"
+
+1411337890 source:/home/me/src/C++/fstream/stats.cpp
+	"stats.h"
+

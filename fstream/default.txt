@@ -1,0 +1,20 @@
+<root>Hello how is your day going?</root>
+
+<typed>menu</typed>
+<answer>good</answer>
+
+<response>Thats nice, you keep having a good day;
+don't let me get in the way of that.</response>
+
+<answer>bad</answer>
+<response>foo bar foo</response>
+<question>bar</question>
+<answer>first</answer>
+<question>test 1</question>
+<answer>lame</answer>
+<question>question 2</question>
+<answer>lame answer</answer>
+<question>question 3</question>
+
+<answer>cat</answer>
+<done>
