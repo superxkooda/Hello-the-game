@@ -1,6 +1,7 @@
 #first makefile
 CC = c++
-flags=-c -Wall
+flags=-c -Wall -Iinclude/ 
+vpath %.h  include
 all: convo
 
 convo: cpp 
@@ -9,7 +10,9 @@ convo: cpp
 	mv -v *.o ./build
 
 cpp:
-	$(CC) $(flags) *.cpp
+	$(CC) $(flags) src/*.cpp
+	$(CC) $(flags) src/**/*.cpp
+
 
 clean: 
 	rm -rfv ./build
