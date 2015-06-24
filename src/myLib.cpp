@@ -14,15 +14,6 @@ void quit();
 void TBA(std::string feature);
 
 
-struct stats
-{
-    int score;
-    std::string level;
-    int track;
-    stats();
-    stats(std::string loadLevel, int loadScore, int loadTrack);
-
-};
 class menu
 {
     std::string * elements;
@@ -35,7 +26,6 @@ public:
     void draw(WINDOW * winn, int selected, int x, int y);
 };
 
-stats * tracker;
 
 class timer {
 	private:
@@ -128,7 +118,6 @@ void quit()
     move(0,0);
    // refresh();
     endwin();
-    delete tracker;
     std::exit(0);
 }
 //catch features that i have not added yet
@@ -138,24 +127,8 @@ void TBA(std::string feature)
     printw("This feature \"%s\" has not been implemented yet and is in the works :)\n These new and exciting features are just on the horizon. \n press any key to quit\n",feature.c_str());
     timeout(-1);
     getch();
-    quit();
 }
 
-
-//stats struct
-stats::stats()
-{
-    score=track=0;
-    level="new";
-
-}
-
-stats::stats(std::string loadLevel, int loadScore, int loadTrack)
-{
-    score=loadScore;
-    level=loadLevel;
-    track=loadTrack;
-}
 
 
 menu::menu(bool isVertical, int space, int tmpSize, std::string inElements[])

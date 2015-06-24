@@ -21,10 +21,8 @@ int main()
 
     gameObj HelloTheGame;
     HelloTheGame.handler();
-	printw("exiting\n");
-    quit();
-
-
+cout<<"exiting\n";
+quit();
 
     return 0;
 }

@@ -38,7 +38,6 @@ gameObj::gameObj()
 
 gameObj::~gameObj()
 {
-
 }
 
 void gameObj::handler()
@@ -47,6 +46,7 @@ void gameObj::handler()
     //lets start the game
     titleScreen();
         newGame();
+
 }
 void gameObj::titleScreen()
 {
