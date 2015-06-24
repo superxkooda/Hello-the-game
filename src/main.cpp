@@ -21,9 +21,8 @@ int main()
 
     gameObj HelloTheGame;
     HelloTheGame.handler();
-
-
-    endwin();
+	printw("exiting\n");
+    quit();
 
 
 

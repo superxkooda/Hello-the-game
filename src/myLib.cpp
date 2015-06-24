@@ -47,7 +47,6 @@ class timer {
 };
 //definitions
 
-
 void ncursesInit()
 {
     initscr();
@@ -59,8 +58,6 @@ void ncursesInit()
     }
     else
         use_default_colors();
-
-    noecho();
 }
 
 void wrapper()
@@ -81,6 +78,9 @@ void getStdScr()
 
 void newGame()
 {
+    cbreak();
+    echo();
+    keypad(stdscr, true);
     refresh();
 	char exit[1];
 	exit[0] = 'y';
@@ -101,17 +101,18 @@ void newGame()
 		else
 			printw("You have enterd an unacceptable answer. \n You should be ashamed of yourself! Think about the traffic outside and have a nice day \n");
 		refresh();
-		printw( "Play agoin? (y/n)?\n :");
+		printw( "Play again? (y/n)?\n : ");
 		refresh();
 		getstr(exit);
+		if(exit[0]!='y' && exit[0]!='n') {
 		while (exit[0]!='y' && exit[0]!='n')
 		{
 			printw("WRONG! y to play again n to exit! \n :");
 			refresh();
 			getstr(exit);
 		}
+		}
 	}
-	printw("exiting\n");
 }
 
 void bclear(WINDOW * window)
@@ -125,7 +126,7 @@ void quit()
 {
     clear();
     move(0,0);
-    refresh();
+   // refresh();
     endwin();
     delete tracker;
     std::exit(0);

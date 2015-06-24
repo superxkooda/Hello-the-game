@@ -1,6 +1,6 @@
 #first makefile
 CC = c++
-flags=-c -Wall -Iinclude/ 
+flags= -g -c -Wall -Iinclude/ 
 vpath %.h  include
 all: convo
 
