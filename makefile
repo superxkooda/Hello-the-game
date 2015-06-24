@@ -11,7 +11,7 @@ convo: cpp
 
 cpp:
 	$(CC) $(flags) src/*.cpp
-	$(CC) $(flags) src/**/*.cpp
+	$(CC) $(flags) src/titleScreenNew/titleScreen.cpp
 
 
 clean: 

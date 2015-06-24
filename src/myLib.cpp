@@ -111,6 +111,7 @@ void newGame()
 			getstr(exit);
 		}
 	}
+	printw("exiting\n");
 }
 
 void bclear(WINDOW * window)

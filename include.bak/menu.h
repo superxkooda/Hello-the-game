@@ -9,6 +9,9 @@ class gameObj
     //  void fall(bool, int&, int, int);
     void fall(int startX, int startY, int speed);
     void titleScreen();
+    int score;
+    void gameOver(int how);
+    void mainMenu();
 
 
 public:
