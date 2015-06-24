@@ -20,8 +20,7 @@ int main()
     }
 
     titleScreen HelloTheGame;
-cout<<"exiting\n";
-quit();
+    quit();
 
     return 0;
 }

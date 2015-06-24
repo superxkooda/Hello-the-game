@@ -1,29 +1,22 @@
 #define MENU_H
 #include "common.h"
-class gameObj
+class titleScreen
 {
 
     int x, y, iterations, time;
-    void title(int maxX, int maxY);
-    void titleSplash();
-    //  void fall(bool, int&, int, int);
+    void animate(int maxX, int maxY);
+    void splash();
     void fall(int startX, int startY, int speed);
-    void titleScreen();
-    int score;
-    void gameOver(int how);
-    void mainMenu();
-    timer T;
+    void title();
+    std::string ascii[9];
 
 public:
-    gameObj();
-    ~gameObj();
-    void handler();
-
-//		bool gameOver(void);
-
+    titleScreen();
+    ~titleScreen();
+    void start();
 };
 
-gameObj::gameObj()
+titleScreen::titleScreen()
 {
 
     x=0;
@@ -33,23 +26,33 @@ gameObj::gameObj()
     start_color();
     init_pair(1, COLOR_GREEN, -1);
     init_pair(2,COLOR_BLACK,COLOR_GREEN);
+    ascii[0]=" ___________  __    __    _______       _______       __       ___      ___   _______ ";
+    ascii[1]="(\"     _   \")/\" |  | \"\\  /\"     \"|     /\" _   \"|     /\"\"\\     |\"  \\    /\"  | /\"     \"|";
+    ascii[2]=" )__/  \\\\__/(:  (__)  :)(: ______)    (: ( \\___)    /    \\     \\   \\  //   |(: ______)";
+    ascii[3]="    \\\\_ /    \\/      \\/  \\/    |       \\/ \\        /' /\\  \\    /\\\\  \\/.    | \\/    |  ";
+    ascii[4]="    |.  |    //  __  \\\\  // ___)_      //  \\ ___  //  __'  \\  |: \\.        | // ___)_ ";
+    ascii[5]="    \\:  |   (:  (  )  :)(:      \"|    (:   _(  _|/   /  \\\\  \\ |.  \\    /:  |(:      \"|";
+    ascii[6]="     \\__|    \\__|  |__/  \\_______)     \\_______)(___/    \\___)|___|\\__/|___| \\_______)";             
+    ascii[7]=" _____________________________________________________________________________________" ;
+    ascii[8]="                           ---Press any key to continue---";
+    start();
 
 
 };
 
-gameObj::~gameObj()
+titleScreen::~titleScreen()
 {
-
 }
 
-void gameObj::handler()
+void titleScreen::start()
 {
 
     //lets start the game
-    titleScreen();
-    mainMenu();
+    title();
+
 }
-void gameObj::titleScreen()
+
+void titleScreen::title()
 {
     curs_set(0);
     raw();
@@ -62,7 +65,7 @@ void gameObj::titleScreen()
     while( wait == -1 )
     {
 
-        title(stdx, stdy);
+        animate(stdx, stdy);
         //MACRO
         wait = getch();
         refresh();
@@ -80,27 +83,10 @@ void gameObj::titleScreen()
 
 }
 
-void gameObj::title(int maxX, int maxY)
-{
-    y=x=0;
-    x=(maxX/2)-2;
-    fall(x,y,5);
-}
 
-void gameObj::titleSplash()
+void titleScreen::splash()
 {
     int y=25;
-    std::string ascii[9];
-    ascii[0]=" ___________  __    __    _______       _______       __       ___      ___   _______ ";
-    ascii[1]="(\"     _   \")/\" |  | \"\\  /\"     \"|     /\" _   \"|     /\"\"\\     |\"  \\    /\"  | /\"     \"|";
-    ascii[2]=" )__/  \\\\__/(:  (__)  :)(: ______)    (: ( \\___)    /    \\     \\   \\  //   |(: ______)";
-    ascii[3]="    \\\\_ /    \\/      \\/  \\/    |       \\/ \\        /' /\\  \\    /\\\\  \\/.    | \\/    |  ";
-    ascii[4]="    |.  |    //  __  \\\\  // ___)_      //  \\ ___  //  __'  \\  |: \\.        | // ___)_ ";
-    ascii[5]="    \\:  |   (:  (  )  :)(:      \"|    (:   _(  _|/   /  \\\\  \\ |.  \\    /:  |(:      \"|";
-    ascii[6]="     \\__|    \\__|  |__/  \\_______)     \\_______)(___/    \\___)|___|\\__/|___| \\_______)";
-    ascii[7]=" _____________________________________________________________________________________" ;
-    ascii[8]="                           ---Press any key to continue---";
-
     for(int loop =0; loop<9; loop++)
     {
         if(loop >4 && loop <7)
@@ -117,7 +103,7 @@ void gameObj::titleSplash()
 }
 
 //this is the main menu animation
-void gameObj::fall(int startX, int startY, int speed)
+void titleScreen::fall(int startX, int startY, int speed)
 {
 
     //	----23--- char each
@@ -143,7 +129,7 @@ void gameObj::fall(int startX, int startY, int speed)
             if(i>47)
             {
                 i=0;
-                titleSplash();
+                splash();
             }
         }
         while(z>-1)
@@ -240,96 +226,10 @@ void gameObj::fall(int startX, int startY, int speed)
 
 }
 
-
-//main menu
-void gameObj::mainMenu()
+void titleScreen::animate(int maxX, int maxY)
 {
-    wrapper();
-    int key;
-    int selected=0;
-    int exit=0;
-    x=0;
-    y=0;
-    iterations=0;
-    time=0;
-    std::string mainOptions[]=
-    {
-        "New Game",
-        "Continue",
-        "High Score",
-        "Exit"
-    };
-
-    menu main(true,1,4, mainOptions);
-    //start our main loop for the menu
-    while(exit==0)
-    {
-
-
-        x=(stdx/2)-2;
-
-//draw our items and hilight the selected element
-
-        main.draw(win,selected, 36, 10);
-        wrefresh(win);
-        //timeout(0);
-        key=getch();
-
-
-        switch(key)
-        {
-        case KEY_UP:
-            if(selected>0)
-            {
-                selected--;
-            }
-            break;
-
-        case KEY_DOWN:
-            if(selected<3)
-            {
-                selected++;
-            }
-            break;
-
-        case KEY_ENTER:
-        case 10:
-        case 13:
-
-            exit=1;
-            break;
-
-        default:
-            break;
-
-
-        }
-
-
-    SLEEP();
-
-    }
-    timeout(-1);
-
-    //process the output
-    switch(selected)
-    {
-    case 0: //"New Game":
-        newGame();
-        //TBA("New Game");
-        break;
-
-    case 1: // "Continue":
-        TBA("Continue");
-        break;
-    case 2:// "High Score"
-        //    highScore(); // bring to high score screen
-        TBA("High Score");
-        break;
-
-    case 3: //"Exit":
-        quit();
-
-        break;
-    }
+    y=x=0;
+    x=(maxX/2)-2;
+    fall(x,y,5);
 }
+
