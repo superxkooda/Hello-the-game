@@ -1,20 +1,20 @@
 #ifndef MENU_H
 #define MENU_H
-class gameObj
+class titleScreen 
 {
 
     int x, y, iterations, time;
-    void title(int maxX, int maxY);
-    void titleSplash();
+    void animate(int maxX, int maxY);
+    void splash();
     //  void fall(bool, int&, int, int);
     void fall(int startX, int startY, int speed);
-    void titleScreen();
+    void title();
 
 
 public:
-    gameObj();
-    ~gameObj();
-    void handler();
+    titleScreen();
+    ~titleScreen();
+    void start();
 
 //		bool gameOver(void);
 

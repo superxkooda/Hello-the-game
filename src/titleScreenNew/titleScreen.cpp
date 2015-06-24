@@ -1,28 +1,28 @@
 #define MENU_H
 #include "common.h"
-class gameObj
+class titleScreen
 {
 
     int x, y, iterations, time;
-    void title(int maxX, int maxY);
-    void titleSplash();
+    void animate(int maxX, int maxY);
+    void splash();
     //  void fall(bool, int&, int, int);
     void fall(int startX, int startY, int speed);
-    void titleScreen();
+    void title();
     int score;
     void gameOver(int how);
     timer T;
 
 public:
-    gameObj();
-    ~gameObj();
-    void handler();
+    titleScreen();
+    ~titleScreen();
+    void start();
 
 //		bool gameOver(void);
 
 };
 
-gameObj::gameObj()
+titleScreen::titleScreen()
 {
 
     x=0;
@@ -36,19 +36,19 @@ gameObj::gameObj()
 
 };
 
-gameObj::~gameObj()
+titleScreen::~titleScreen()
 {
 }
 
-void gameObj::handler()
+void titleScreen::start()
 {
 
     //lets start the game
-    titleScreen();
+    title();
         newGame();
 
 }
-void gameObj::titleScreen()
+void titleScreen::title()
 {
     curs_set(0);
     raw();
@@ -61,7 +61,7 @@ void gameObj::titleScreen()
     while( wait == -1 )
     {
 
-        title(stdx, stdy);
+        animate(stdx, stdy);
         //MACRO
         wait = getch();
         refresh();
@@ -79,14 +79,14 @@ void gameObj::titleScreen()
 
 }
 
-void gameObj::title(int maxX, int maxY)
+void titleScreen::animate(int maxX, int maxY)
 {
     y=x=0;
     x=(maxX/2)-2;
     fall(x,y,5);
 }
 
-void gameObj::titleSplash()
+void titleScreen::splash()
 {
     int y=25;
     std::string ascii[9];
@@ -116,7 +116,7 @@ void gameObj::titleSplash()
 }
 
 //this is the main menu animation
-void gameObj::fall(int startX, int startY, int speed)
+void titleScreen::fall(int startX, int startY, int speed)
 {
 
     //	----23--- char each
@@ -142,7 +142,7 @@ void gameObj::fall(int startX, int startY, int speed)
             if(i>47)
             {
                 i=0;
-                titleSplash();
+                splash();
             }
         }
         while(z>-1)

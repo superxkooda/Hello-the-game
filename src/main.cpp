@@ -19,8 +19,8 @@ int main()
 
     }
 
-    gameObj HelloTheGame;
-    HelloTheGame.handler();
+    titleScreen HelloTheGame;
+    HelloTheGame.start();
 cout<<"exiting\n";
 quit();
 
