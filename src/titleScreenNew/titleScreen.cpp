@@ -6,18 +6,14 @@ class titleScreen
     int x, y, iterations, time;
     void animate(int maxX, int maxY);
     void splash();
-    //  void fall(bool, int&, int, int);
     void fall(int startX, int startY, int speed);
     void title();
-    void gameOver(int how);
+    std::string ascii[9];
 
 public:
     titleScreen();
     ~titleScreen();
     void start();
-
-//		bool gameOver(void);
-
 };
 
 titleScreen::titleScreen()
@@ -30,6 +26,15 @@ titleScreen::titleScreen()
     start_color();
     init_pair(1, COLOR_GREEN, -1);
     init_pair(2,COLOR_BLACK,COLOR_GREEN);
+    ascii[0]=" ___________  __    __    _______       _______       __       ___      ___   _______ ";
+    ascii[1]="(\"     _   \")/\" |  | \"\\  /\"     \"|     /\" _   \"|     /\"\"\\     |\"  \\    /\"  | /\"     \"|";
+    ascii[2]=" )__/  \\\\__/(:  (__)  :)(: ______)    (: ( \\___)    /    \\     \\   \\  //   |(: ______)";
+    ascii[3]="    \\\\_ /    \\/      \\/  \\/    |       \\/ \\        /' /\\  \\    /\\\\  \\/.    | \\/    |  ";
+    ascii[4]="    |.  |    //  __  \\\\  // ___)_      //  \\ ___  //  __'  \\  |: \\.        | // ___)_ ";
+    ascii[5]="    \\:  |   (:  (  )  :)(:      \"|    (:   _(  _|/   /  \\\\  \\ |.  \\    /:  |(:      \"|";
+    ascii[6]="     \\__|    \\__|  |__/  \\_______)     \\_______)(___/    \\___)|___|\\__/|___| \\_______)";             
+    ascii[7]=" _____________________________________________________________________________________" ;
+    ascii[8]="                           ---Press any key to continue---";
     start();
 
 
@@ -44,7 +49,6 @@ void titleScreen::start()
 
     //lets start the game
     title();
-        newGame();
 
 }
 
@@ -79,27 +83,10 @@ void titleScreen::title()
 
 }
 
-void titleScreen::animate(int maxX, int maxY)
-{
-    y=x=0;
-    x=(maxX/2)-2;
-    fall(x,y,5);
-}
 
 void titleScreen::splash()
 {
     int y=25;
-    std::string ascii[9];
-    ascii[0]=" ___________  __    __    _______       _______       __       ___      ___   _______ ";
-    ascii[1]="(\"     _   \")/\" |  | \"\\  /\"     \"|     /\" _   \"|     /\"\"\\     |\"  \\    /\"  | /\"     \"|";
-    ascii[2]=" )__/  \\\\__/(:  (__)  :)(: ______)    (: ( \\___)    /    \\     \\   \\  //   |(: ______)";
-    ascii[3]="    \\\\_ /    \\/      \\/  \\/    |       \\/ \\        /' /\\  \\    /\\\\  \\/.    | \\/    |  ";
-    ascii[4]="    |.  |    //  __  \\\\  // ___)_      //  \\ ___  //  __'  \\  |: \\.        | // ___)_ ";
-    ascii[5]="    \\:  |   (:  (  )  :)(:      \"|    (:   _(  _|/   /  \\\\  \\ |.  \\    /:  |(:      \"|";
-    ascii[6]="     \\__|    \\__|  |__/  \\_______)     \\_______)(___/    \\___)|___|\\__/|___| \\_______)";
-    ascii[7]=" _____________________________________________________________________________________" ;
-    ascii[8]="                           ---Press any key to continue---";
-
     for(int loop =0; loop<9; loop++)
     {
         if(loop >4 && loop <7)
@@ -239,93 +226,10 @@ void titleScreen::fall(int startX, int startY, int speed)
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void titleScreen::animate(int maxX, int maxY)
+{
+    y=x=0;
+    x=(maxX/2)-2;
+    fall(x,y,5);
+}
 
