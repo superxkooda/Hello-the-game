@@ -20,7 +20,6 @@ int main()
     }
 
     titleScreen HelloTheGame;
-    HelloTheGame.start();
 cout<<"exiting\n";
 quit();
 

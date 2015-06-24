@@ -9,9 +9,7 @@ class titleScreen
     //  void fall(bool, int&, int, int);
     void fall(int startX, int startY, int speed);
     void title();
-    int score;
     void gameOver(int how);
-    timer T;
 
 public:
     titleScreen();
@@ -32,6 +30,7 @@ titleScreen::titleScreen()
     start_color();
     init_pair(1, COLOR_GREEN, -1);
     init_pair(2,COLOR_BLACK,COLOR_GREEN);
+    start();
 
 
 };
@@ -48,6 +47,7 @@ void titleScreen::start()
         newGame();
 
 }
+
 void titleScreen::title()
 {
     curs_set(0);
