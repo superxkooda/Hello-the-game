@@ -5,13 +5,13 @@ vpath %.h  include
 all: convo
 
 convo: cpp 
-	if [ ! -d build -a ! -d build/bin ];	then echo creating build directory;	mkdir -p build/bin;	fi;
+	$(shell scripts/dirs.sh)
 	$(CC) *.o -o ./build/bin/hello -lcurses 
 	mv -v *.o ./build
 
 cpp:
 	$(CC) $(flags) src/*.cpp
-	$(CC) $(flags) src/titleScreenNew/titleScreen.cpp
+	$(CC) $(flags) src/titleScreen/titleScreen.cpp
 
 
 clean: 
