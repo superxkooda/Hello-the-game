@@ -8,15 +8,15 @@ class titleScreen
     void splash();
     void fall(int startX, int startY, int speed);
     void title();
-    std::string ascii[9];
+    std::string * ascii;
 
 public:
-    titleScreen();
+    titleScreen(std::string * txt);
     ~titleScreen();
     void start();
 };
 
-titleScreen::titleScreen()
+titleScreen::titleScreen(std::string * txt)
 {
 
     x=0;
@@ -26,15 +26,15 @@ titleScreen::titleScreen()
     start_color();
     init_pair(1, COLOR_GREEN, -1);
     init_pair(2,COLOR_BLACK,COLOR_GREEN);
-    ascii[0]=" ___________  __    __    _______       _______       __       ___      ___   _______ ";
-    ascii[1]="(\"     _   \")/\" |  | \"\\  /\"     \"|     /\" _   \"|     /\"\"\\     |\"  \\    /\"  | /\"     \"|";
-    ascii[2]=" )__/  \\\\__/(:  (__)  :)(: ______)    (: ( \\___)    /    \\     \\   \\  //   |(: ______)";
-    ascii[3]="    \\\\_ /    \\/      \\/  \\/    |       \\/ \\        /' /\\  \\    /\\\\  \\/.    | \\/    |  ";
-    ascii[4]="    |.  |    //  __  \\\\  // ___)_      //  \\ ___  //  __'  \\  |: \\.        | // ___)_ ";
-    ascii[5]="    \\:  |   (:  (  )  :)(:      \"|    (:   _(  _|/   /  \\\\  \\ |.  \\    /:  |(:      \"|";
-    ascii[6]="     \\__|    \\__|  |__/  \\_______)     \\_______)(___/    \\___)|___|\\__/|___| \\_______)";             
-    ascii[7]=" _____________________________________________________________________________________" ;
-    ascii[8]="                           ---Press any key to continue---";
+    ascii=txt;
+    
+    
+    
+    
+    
+    
+    
+    
     start();
 
 
