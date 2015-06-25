@@ -27,14 +27,6 @@ titleScreen::titleScreen(std::string * txt)
     init_pair(1, COLOR_GREEN, -1);
     init_pair(2,COLOR_BLACK,COLOR_GREEN);
     ascii=txt;
-    
-    
-    
-    
-    
-    
-    
-    
     start();
 
 
