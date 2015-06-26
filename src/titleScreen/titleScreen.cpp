@@ -1,4 +1,4 @@
-#define MENU_H
+#define TITLESCREEN_h
 #include "common.h"
 class titleScreen
 {
@@ -7,16 +7,16 @@ class titleScreen
     void animate(int maxX, int maxY);
     void splash();
     void fall(int startX, int startY, int speed);
-    void title();
-    std::string * ascii;
+    void showTitle();
+    title * content;
 
 public:
-    titleScreen(std::string * txt);
+    titleScreen(struct title content);
     ~titleScreen();
     void start();
 };
 
-titleScreen::titleScreen(std::string * txt)
+titleScreen::titleScreen(struct title a)
 {
 
     x=0;
@@ -26,7 +26,7 @@ titleScreen::titleScreen(std::string * txt)
     start_color();
     init_pair(1, COLOR_GREEN, -1);
     init_pair(2,COLOR_BLACK,COLOR_GREEN);
-    ascii=txt;
+    content=&a;
     start();
 
 
@@ -40,11 +40,11 @@ void titleScreen::start()
 {
 
     //lets start the game
-    title();
+    showTitle();
 
 }
 
-void titleScreen::title()
+void titleScreen::showTitle()
 {
     curs_set(0);
     raw();
@@ -84,11 +84,11 @@ void titleScreen::splash()
         if(loop >4 && loop <7)
         {
             attron(COLOR_PAIR(1));
-            mvprintw(y,(stdx/2)-43,"%s",ascii[loop].c_str());
+            mvprintw(y,(stdx/2)-43,"%s",content->ascii[loop].c_str());
             attroff(COLOR_PAIR(1));
         }
         else
-            mvprintw(y,(stdx/2)-43,"%s",ascii[loop].c_str());
+            mvprintw(y,(stdx/2)-43,"%s",content->ascii[loop].c_str());
         y++;
     }
 
@@ -98,12 +98,7 @@ void titleScreen::splash()
 void titleScreen::fall(int startX, int startY, int speed)
 {
 
-    //	----23--- char each
-    static char h[] = "10001010h10101 101     ";//8
-    static char e[] = "   010FA101e0101010    ";//11
-    static char l[] = "1E00  1010101l01010111 ";//13
-    static char l2[] ="10101010101010l1 10  1 ";//14
-    static char o[] = "     010101010001o011t ";//17
+   
 
     static int ticks;//clock ticks aka speed of animation
     static int i=0;//iterator
@@ -129,30 +124,30 @@ void titleScreen::fall(int startX, int startY, int speed)
             if(m>=23)
                 break;
             //print onto scren garbage from the arrays
-            mvprintw(startY+z,x,"%c",h[m]);
-            mvprintw(startY+z,x+1,"%c",e[m]);
-            mvprintw(startY+z,x+2,"%c",l[m]);
-            mvprintw(startY+z,x+3,"%c",l2[m]);
-            mvprintw(startY+z,x+4,"%c",o[m]);
+            mvprintw(startY+z,x,"%c",content->h[m]);
+            mvprintw(startY+z,x+1,"%c",content->e[m]);
+            mvprintw(startY+z,x+2,"%c",content->l[m]);
+            mvprintw(startY+z,x+3,"%c",content->l2[m]);
+            mvprintw(startY+z,x+4,"%c",content->o[m]);
 
             //did we hit a letter in hello?
             attron(COLOR_PAIR(1));
             switch(m)
             {
             case 8:
-                mvprintw(startY+z,startX,"%c",h[m]);
+                mvprintw(startY+z,startX,"%c",content->h[m]);
                 break;
             case 11:
-                mvprintw(startY+z,startX+1,"%c",e[m]);
+                mvprintw(startY+z,startX+1,"%c",content->e[m]);
                 break;
             case 13:
-                mvprintw(startY+z,startX+2,"%c",l[m]);
+                mvprintw(startY+z,startX+2,"%c",content->l[m]);
                 break;
             case 14:
-                mvprintw(startY+z,startX+3,"%c",l2[m]);
+                mvprintw(startY+z,startX+3,"%c",content->l2[m]);
                 break;
             case 17:
-                mvprintw(startY+z,startX+4,"%c",o[m]);
+                mvprintw(startY+z,startX+4,"%c",content->o[m]);
                 break;
             }
 
@@ -161,7 +156,7 @@ void titleScreen::fall(int startX, int startY, int speed)
                 mvprintw(8,startX,"h");
                 if(check<1)
                 {
-                    h[m]=' ';
+                    content->h[m]=' ';
                     check=1;
                 }
             }
@@ -171,7 +166,7 @@ void titleScreen::fall(int startX, int startY, int speed)
                 if(check<2)
                 {
                     check=2;
-                    e[m]=' ';
+                    content->e[m]=' ';
 
                 }
             }
@@ -180,7 +175,7 @@ void titleScreen::fall(int startX, int startY, int speed)
                 mvprintw(8,startX+2,"l");
                 if(check<3)
                 {
-                    l[m]=' ';
+                    content->l[m]=' ';
                     check=3;
 
                 }
@@ -190,7 +185,7 @@ void titleScreen::fall(int startX, int startY, int speed)
                 mvprintw(8,startX+3,"l");
                 if(check<4)
                 {
-                    l2[m]=' ';
+                    content->l2[m]=' ';
                     check=4;
 
                 }
@@ -200,7 +195,7 @@ void titleScreen::fall(int startX, int startY, int speed)
                 mvprintw(8,startX+4,"o");
                 if(check<5)
                 {
-                    o[m]=' ';
+                    content->o[m]=' ';
                     check=5;
 
                 }

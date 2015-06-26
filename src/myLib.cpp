@@ -8,7 +8,7 @@ int stdx, stdy;
 void ncursesInit();
 void wrapper();
 void getStdScr();
-void newGame();
+void classicMode();
 void bclear(WINDOW * window);
 void quit();
 void TBA(std::string feature);
@@ -66,7 +66,7 @@ void getStdScr()
     getmaxyx(stdscr, stdy, stdx);
 }
 
-void newGame()
+void classicMode()
 {
     cbreak();
     echo();
