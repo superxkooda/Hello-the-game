@@ -34,6 +34,7 @@ titleScreen::titleScreen(struct title a)
 
 titleScreen::~titleScreen()
 {
+    delete content;
 }
 
 void titleScreen::start()
