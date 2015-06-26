@@ -7,7 +7,7 @@ void ncursesInit();
 void wrapper();
 void getStdScr();
 
-void newGame();
+void classicMode();
 void bclear(WINDOW * window);
 void quit();
 void TBA(std::string feature);
@@ -47,4 +47,15 @@ class timer {
 
 void SLEEP(double time);
 void SLEEP();
+
+struct title
+{
+   std::string * ascii;
+   char * h;
+   char * e;
+   char * l;
+   char * l2;
+   char * o;
+};
+
 #endif

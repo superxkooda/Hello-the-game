@@ -8,7 +8,7 @@
 #include <unistd.h>
 #include <iostream>
 #include "myLib.h"
-#include "menu.h"
+#include "titleScreen.h"
 
 
 //using namespace std;

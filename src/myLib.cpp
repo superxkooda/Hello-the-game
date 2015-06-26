@@ -8,21 +8,12 @@ int stdx, stdy;
 void ncursesInit();
 void wrapper();
 void getStdScr();
-void newGame();
+void classicMode();
 void bclear(WINDOW * window);
 void quit();
 void TBA(std::string feature);
 
 
-struct stats
-{
-    int score;
-    std::string level;
-    int track;
-    stats();
-    stats(std::string loadLevel, int loadScore, int loadTrack);
-
-};
 class menu
 {
     std::string * elements;
@@ -35,7 +26,6 @@ public:
     void draw(WINDOW * winn, int selected, int x, int y);
 };
 
-stats * tracker;
 
 class timer {
 	private:
@@ -46,7 +36,6 @@ class timer {
 		bool isTimeout(double seconds);
 };
 //definitions
-
 
 void ncursesInit()
 {
@@ -59,8 +48,6 @@ void ncursesInit()
     }
     else
         use_default_colors();
-
-    noecho();
 }
 
 void wrapper()
@@ -79,8 +66,11 @@ void getStdScr()
     getmaxyx(stdscr, stdy, stdx);
 }
 
-void newGame()
+void classicMode()
 {
+    cbreak();
+    echo();
+    keypad(stdscr, true);
     refresh();
 	char exit[1];
 	exit[0] = 'y';
@@ -101,14 +91,16 @@ void newGame()
 		else
 			printw("You have enterd an unacceptable answer. \n You should be ashamed of yourself! Think about the traffic outside and have a nice day \n");
 		refresh();
-		printw( "Play agoin? (y/n)?\n :");
+		printw( "Play again? (y/n)?\n : ");
 		refresh();
 		getstr(exit);
+		if(exit[0]!='y' && exit[0]!='n') {
 		while (exit[0]!='y' && exit[0]!='n')
 		{
 			printw("WRONG! y to play again n to exit! \n :");
 			refresh();
 			getstr(exit);
+		}
 		}
 	}
 }
@@ -124,9 +116,8 @@ void quit()
 {
     clear();
     move(0,0);
-    refresh();
+   // refresh();
     endwin();
-    delete tracker;
     std::exit(0);
 }
 //catch features that i have not added yet
@@ -136,24 +127,8 @@ void TBA(std::string feature)
     printw("This feature \"%s\" has not been implemented yet and is in the works :)\n These new and exciting features are just on the horizon. \n press any key to quit\n",feature.c_str());
     timeout(-1);
     getch();
-    quit();
 }
 
-
-//stats struct
-stats::stats()
-{
-    score=track=0;
-    level="new";
-
-}
-
-stats::stats(std::string loadLevel, int loadScore, int loadTrack)
-{
-    score=loadScore;
-    level=loadLevel;
-    track=loadTrack;
-}
 
 
 menu::menu(bool isVertical, int space, int tmpSize, std::string inElements[])
