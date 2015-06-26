@@ -48,7 +48,7 @@ int main()
     content.o = o;
 
     titleScreen HelloTheGame(content);
-    //classicMode();
+    classicMode();
     quit();
 
     return 0;
