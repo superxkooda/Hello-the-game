@@ -1,24 +1,31 @@
-#first makefile
+SHELL=/bin/bash
+build ?= build
 CC = c++
-flags= -g -c -Wall -Iinclude/ 
-vpath %.h  include
-all: convo
+CFLAGS=-g -c -Wall -Iinclude/
+vpath %.cpp src:src/titleScreen
+vpath %.h include
+#what are we compiling
+objects=$(build)/main.o $(build)/myLib.o\
+$(build)/titleScreen.o 
 
-convo: cpp 
-	$(shell scripts/dirs.sh)
-	$(CC) *.o -o ./build/bin/hello -lcurses 
-	mv -v *.o ./build
+all:$(build)/bin/hello
 
-cpp:
-	$(CC) $(flags) src/*.cpp
-	$(CC) $(flags) src/titleScreen/titleScreen.cpp
+build:
+	@mkdir -v $(build) 
+	@mkdir -v  $(build)/bin
 
+$(build)/bin/hello:$(objects)
+	$(CC) $(build)/*.o -o $@ -lcurses
+		
+$(objects): $(build)/%.o:%.cpp| build 
+	 $(CC) $(CFLAGS) $< -o $@
 
-clean: 
-	rm -rfv ./build
+.PHONY: clean
+clean:
+	@rm -rv $(build) 
 
 install:
-	cp -vi ./build/bin/hello /usr/bin/hello
+	cp -vi ./$(build)/bin/hello /usr/bin/hello
 
 uninstall:
 	rm -vi /usr/bin/hello
