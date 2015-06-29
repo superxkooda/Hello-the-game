@@ -6,11 +6,12 @@ of both a menu and open ended response one would require a loop to check for key
 while the other would simply use the ncurses built in functions to retrive keyboard imput from the user.
 Becuse of this I do not need an all encompassing game loop running all the time. This is the idea of course
 and it may be very wrong and maybe I do need a more standard looping method for this application. 
+````
     //This is the gist of it
     void gameLoop(int * update(), void draw())
      {
-     	int exit=0;
- 	//frame skip logic
+      int exit=0;
+      //frame skip logic
  	// ...
  	//goes here
  
@@ -20,3 +21,4 @@ and it may be very wrong and maybe I do need a more standard looping method for 
  		draw();
        	}
      }
+````
