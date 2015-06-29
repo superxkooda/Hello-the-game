@@ -184,6 +184,7 @@ void menu::draw(WINDOW * winn, int selected, int x, int y)
 			return seconds >= elapsedTime();
 		}
 
+//need to find a better solution than this for a game loop
     void SLEEP(double time)
     {
         timer T;
