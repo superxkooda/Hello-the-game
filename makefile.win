@@ -13,7 +13,7 @@ build:
 	@mkdir $(build)\bin 
 
 $(build)/bin/hello.exe:$(objects)
-	$(CC) $(build)/*.o -o $@ -lpdcurses -LwinLib
+	$(CC) $(build)/*.o -o $@ -static-libgcc -static-libstdc++ -lpdcurses -LwinLib
 		
 $(objects): $(build)/%.o:%.cpp| build 
 	 $(CC) $(CFLAGS) $< -o $@
