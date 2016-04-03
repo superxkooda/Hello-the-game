@@ -9,7 +9,10 @@ int main()
 {
 //if windows i want to set the cmd terminal to an appropriate size
 #ifdef _WIN32
-    system("mode 120,60");
+    system("mode 800");
+	SetConsoleTitle("Hello The Game");
+    HWND hWnd = GetConsoleWindow();
+    ShowWindow(hWnd,SW_SHOWMAXIMIZED);
 #endif
    
     ncursesInit();

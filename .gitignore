@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-build
-=======
 build/*.o
 build/bin/*
 *bin/
->>>>>>> d14b03f39764cc2eaddd022f8b2aebf4d5d5960c
