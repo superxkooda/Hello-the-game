@@ -1,23 +1,24 @@
 build ?= build
 CC = c++
-CFLAGS=-g -c -Wall -Iinclude/ -IwinLib
+CFLAGS=-g -c -Wall -Iinclude/ 
 vpath %.cpp src:src/titleScreen
 vpath %.h include
 #what are we compiling
 objects=$(build)/main.o $(build)/myLib.o\
-$(build)/titleScreen.o 
+$(build)/titleScreen.o $(build)/tree.o 
 
 all:$(build)/bin/hello.exe
 
 build:
+	@mkdir $(build) 
 	@mkdir $(build)\bin 
 
 $(build)/bin/hello.exe:$(objects)
-	$(CC) $(build)/*.o -o $@ -static-libgcc -static-libstdc++ -lpdcurses -LwinLib
+	$(CC) $(build)/*.o -o $@ -static-libgcc -static-libstdc++ -static -lpdcurses 
 		
 $(objects): $(build)/%.o:%.cpp| build 
 	 $(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
 clean:
-	@rmdir /S $(build) 
+	rm -r $(build) 
