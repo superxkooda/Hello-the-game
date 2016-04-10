@@ -1,0 +1,31 @@
+SHELL=/bin/bash
+build ?= build
+CC = gcc
+CFLAGS=-g -c -Wall -Icinclude/
+vpath %.c csrc
+vpath %.c csrc/animations
+vpath %.h cinclude
+#what are we compiling
+objects=$(build)/main.o $(build)/myLib.o $(build)/sprite.o $(build)/slide.o 
+
+all:$(build)/bin/hello
+
+build:
+	@mkdir -v $(build) 
+	@mkdir -v  $(build)/bin
+
+$(build)/bin/hello:$(objects)
+	$(CC) $(build)/*.o -o $@ -lcurses
+		
+$(objects): $(build)/%.o:%.c| build 
+	 $(CC) $(CFLAGS) $< -o $@
+
+.PHONY: clean
+clean:
+	@rm -rv $(build) 
+
+install:
+	cp -vi ./$(build)/bin/hello /usr/bin/hello
+
+uninstall:
+	rm -vi /usr/bin/hello
